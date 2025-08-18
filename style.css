@@ -114,3 +114,21 @@ body {
         margin-left: 0;
     }
 }
+
+/* Layout untuk halaman Home */
+.home-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* jarak antara gambar dan teks */
+}
+
+.profile-img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.text-container {
+    max-width: 600px;
+}

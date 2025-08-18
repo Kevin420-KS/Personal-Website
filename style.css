@@ -69,7 +69,7 @@ body {
 .toggle-btn {
     position: absolute;
     top: 15px;
-    right: -20px;
+    left: 200px; /* sejajar dengan sidebar open (220px) */
     background: #222;
     color: #fff;
     border-radius: 50%;
@@ -81,10 +81,16 @@ body {
     cursor: pointer;
     border: 2px solid #fff;
     transition: 0.3s;
+    z-index: 1000; /* biar selalu di atas */
 }
 
 .toggle-btn:hover {
     background: #444;
+}
+
+/* Kalau sidebar ditutup, tombol ikut geser */
+.sidebar.close ~ .toggle-btn {
+    left: 50px; /* sejajar dengan sidebar kecil (70px) */
 }
 
 /* Konten */
@@ -107,6 +113,10 @@ body {
     }
     .sidebar.close {
         width: 100%;
+    }
+    .toggle-btn {
+        left: auto;
+        right: 15px; /* tombol pindah ke kanan di mode HP */
     }
     .content {
         margin-left: 0;

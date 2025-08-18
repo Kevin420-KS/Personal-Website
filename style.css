@@ -11,27 +11,56 @@ body {
     width: 220px;
     position: fixed;
     background-color: #222;
-    padding-top: 20px;
+    padding-top: 0;
     transition: width 0.3s ease;
     overflow: hidden;
 }
 
-.sidebar.close {
-    width: 70px; /* kondisi mengecil */
-}
-
-/* Logo / Judul Sidebar */
-.sidebar h2 {
+/* Header sidebar (Menu + tombol toggle) */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #111;
     color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 20px;
-    transition: opacity 0.3s ease;
 }
 
+.sidebar h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Tombol toggle */
+.toggle-btn {
+    background: #444;
+    color: #fff;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+}
+
+.toggle-btn:hover {
+    background: #666;
+}
+
+/* Sidebar close */
+.sidebar.close {
+    width: 70px;
+}
+
+/* Saat close, sembunyikan teks */
 .sidebar.close h2 {
-    opacity: 0; /* sembunyikan tulisan saat mengecil */
-    pointer-events: none;
+    display: none;
+}
+
+.sidebar.close a span {
+    display: none;
 }
 
 /* Link menu */
@@ -53,44 +82,11 @@ body {
     color: #fff;
 }
 
-/* Saat close, sembunyikan tulisan menu */
-.sidebar.close a span {
-    display: none;
-}
-
 /* Ikon menu */
 .sidebar a i {
     font-size: 20px;
     min-width: 25px;
     text-align: center;
-}
-
-/* Tombol toggle */
-.toggle-btn {
-    position: absolute;
-    top: 15px;
-    left: 200px; /* sejajar dengan sidebar open (220px) */
-    background: #222;
-    color: #fff;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: 2px solid #fff;
-    transition: 0.3s;
-    z-index: 1000; /* biar selalu di atas */
-}
-
-.toggle-btn:hover {
-    background: #444;
-}
-
-/* Kalau sidebar ditutup, tombol ikut geser */
-.sidebar.close ~ .toggle-btn {
-    left: 50px; /* sejajar dengan sidebar kecil (70px) */
 }
 
 /* Konten */
@@ -113,10 +109,6 @@ body {
     }
     .sidebar.close {
         width: 100%;
-    }
-    .toggle-btn {
-        left: auto;
-        right: 15px; /* tombol pindah ke kanan di mode HP */
     }
     .content {
         margin-left: 0;

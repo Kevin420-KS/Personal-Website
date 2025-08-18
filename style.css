@@ -2,6 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background: #f5f5f5;
 }
 
 /* Sidebar */
@@ -11,21 +12,40 @@ body {
     position: fixed;
     background-color: #222;
     padding-top: 20px;
+    transition: width 0.3s ease;
+    overflow: hidden;
 }
 
+.sidebar.close {
+    width: 70px; /* kondisi mengecil */
+}
+
+/* Logo / Judul Sidebar */
 .sidebar h2 {
     color: #fff;
     text-align: center;
     margin-bottom: 20px;
+    font-size: 20px;
+    transition: opacity 0.3s ease;
 }
 
+.sidebar.close h2 {
+    opacity: 0; /* sembunyikan tulisan saat mengecil */
+    pointer-events: none;
+}
+
+/* Link menu */
 .sidebar a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
     color: #ddd;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     transition: 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .sidebar a:hover {
@@ -33,10 +53,49 @@ body {
     color: #fff;
 }
 
+/* Saat close, sembunyikan tulisan menu */
+.sidebar.close a span {
+    display: none;
+}
+
+/* Ikon menu */
+.sidebar a i {
+    font-size: 20px;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Tombol toggle */
+.toggle-btn {
+    position: absolute;
+    top: 15px;
+    right: -20px;
+    background: #222;
+    color: #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.toggle-btn:hover {
+    background: #444;
+}
+
 /* Konten */
 .content {
     margin-left: 240px;
     padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.close ~ .content {
+    margin-left: 90px;
 }
 
 /* Responsif untuk HP */
@@ -45,6 +104,9 @@ body {
         width: 100%;
         height: auto;
         position: relative;
+    }
+    .sidebar.close {
+        width: 100%;
     }
     .content {
         margin-left: 0;

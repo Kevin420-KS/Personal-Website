@@ -1,4 +1,6 @@
-/* Reset dasar */
+/* ===================== */
+/* RESET DASAR */
+/* ===================== */
 * {
   margin: 0;
   padding: 0;
@@ -30,8 +32,34 @@ body {
   transition: width 0.3s ease;
   overflow: hidden;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Header / Brand di sidebar */
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+  color: #fff;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+/* Tombol toggle */
+.toggle-btn {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Link menu */
 .sidebar a {
   display: flex;
   align-items: center;
@@ -45,7 +73,7 @@ body {
   background: #444;
 }
 
-/* Ikon sidebar */
+/* Ikon menu */
 .sidebar a i {
   font-size: 20px;
   min-width: 40px;
@@ -58,13 +86,32 @@ body {
   white-space: nowrap;
 }
 
-/* Saat sidebar close */
+/* ===================== */
+/* MODE CLOSE SIDEBAR */
+/* ===================== */
 .sidebar.close {
   width: 70px;
 }
 
+/* Sembunyikan teks brand saat close */
+.sidebar.close .sidebar-header h2 {
+  display: none;
+}
+
+/* Atur toggle tetap center */
+.sidebar.close .toggle-btn {
+  margin: 0 auto;
+}
+
+/* Sembunyikan teks di menu, hanya ikon tampil */
 .sidebar.close a span {
   display: none;
+}
+
+/* Biar ikon tetap rata tengah */
+.sidebar.close a {
+  justify-content: center;
+  gap: 0;
 }
 
 /* ===================== */
@@ -110,7 +157,8 @@ section {
   .sidebar {
     width: 70px;
   }
-  .sidebar a span {
+  .sidebar a span,
+  .sidebar-header h2 {
     display: none;
   }
   .main {

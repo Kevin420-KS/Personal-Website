@@ -2,20 +2,66 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Ucup</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <nav>
-    <button onclick="loadPage('home')">Home</button>
-    <button onclick="loadPage('about')">About</button>
-    <button onclick="loadPage('contact')">Contact</button>
-  </nav>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Menu</h2>
+      <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+    </div>
+    <a href="#home"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#about"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+  </div>
 
-  <main id="content">
-    <!-- konten akan di-load otomatis -->
-  </main>
+  <!-- Konten -->
+  <div class="content">
+    <!-- Home -->
+    <section id="home">
+      <h1>Halo Semuanya!</h1>
+      <div class="home-container">
+        <img src="images/Ucup.png" alt="Foto Ucup" class="profile-img">
+        <div class="text-container">
+          <p>
+            Perkenalkan saya <b>UcupEsgul</b> atau panggil saja saya <b>Ucup</b>. 
+            Saya mahasiswa Universitas Esa Unggul, Tangerang angkatan 2023.  
+            Tujuan saya membuat website ini hanya untuk belajar seputar frontend 
+            dan menceritakan singkat tentang diri saya ini.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- About -->
+    <section id="about">
+      <h1>Tentang Saya</h1>
+      <p>Bahasa pemrograman yang digunakan: HTML, CSS, JavaScript.</p>
+      <ul>
+        <li><b>Kelebihan:</b> Mudah dipelajari, ringan, banyak referensi.</li>
+        <li><b>Kekurangan:</b> Terbatas pada client-side (JS), perlu backend untuk data kompleks.</li>
+      </ul>
+      <p>Projek yang pernah dibuat: Website Portfolio, Aplikasi Chatbot, dsb.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h1>Kontak Saya</h1>
+      <p>Silakan hubungi saya melalui:</p>
+      <ul>
+        <li><a href="https://facebook.com/" target="_blank">Facebook</a></li>
+        <li><a href="https://instagram.com/" target="_blank">Instagram</a></li>
+        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,134 +1,118 @@
 /* Reset dasar */
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     background: #f5f5f5;
+    color: #333;
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* biar tidak ada scroll global */
 }
 
 /* Sidebar */
 .sidebar {
-    height: 100%;
-    width: 220px;
-    position: fixed;
-    background-color: #222;
-    padding-top: 0;
+    width: 250px;
+    background: #1e1e1e;
+    color: white;
+    display: flex;
+    flex-direction: column;
     transition: width 0.3s ease;
     overflow: hidden;
 }
 
-/* Header sidebar (Menu + tombol toggle) */
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: #111;
-    color: #fff;
-}
-
-.sidebar h2 {
-    margin: 0;
-    font-size: 20px;
-}
-
-/* Tombol toggle */
-.toggle-btn {
-    background: #444;
-    color: #fff;
-    border-radius: 5px;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: none;
-}
-
-.toggle-btn:hover {
-    background: #666;
-}
-
-/* Sidebar close */
-.sidebar.close {
+.sidebar.minimized {
     width: 70px;
 }
 
-/* Saat close, sembunyikan teks */
-.sidebar.close h2 {
-    display: none;
+.sidebar h2 {
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+    background: #111;
 }
 
-.sidebar.close a span {
-    display: none;
+/* Toggle button */
+.toggle-btn {
+    background: #111;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
 }
 
-/* Link menu */
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #ddd;
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: 0.3s;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s ease;
+    width: 100%;
     white-space: nowrap;
-    overflow: hidden;
 }
 
-.sidebar a:hover {
-    background-color: #575757;
-    color: #fff;
+.sidebar ul li a:hover {
+    background: #333;
+}
+
+/* Sidebar minimized: hanya icon tampil */
+.sidebar.minimized ul li a span {
+    display: none;
 }
 
 /* Ikon menu */
-.sidebar a i {
-    font-size: 20px;
-    min-width: 25px;
+.sidebar ul li a i {
+    font-size: 18px;
+    width: 25px;
     text-align: center;
 }
 
-/* Konten */
-.content {
-    margin-left: 240px;
+/* Konten utama */
+.main-content {
+    flex: 1;
     padding: 20px;
-    transition: margin-left 0.3s ease;
+    overflow-y: auto; /* ini yang bikin scroll muncul */
 }
 
-.sidebar.close ~ .content {
-    margin-left: 90px;
+/* Card */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Responsif untuk HP */
-@media screen and (max-width: 768px) {
+/* Responsif */
+@media (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+        position: fixed;
+        height: 100%;
+        left: -250px;
+        z-index: 100;
     }
-    .sidebar.close {
-        width: 100%;
+    .sidebar.active {
+        left: 0;
     }
-    .content {
-        margin-left: 0;
+    .main-content {
+        padding: 15px;
     }
-}
-
-/* Layout untuk halaman Home */
-.home-container {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* jarak antara gambar dan teks */
-}
-
-.profile-img {
-    max-width: 250px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.text-container {
-    max-width: 600px;
 }

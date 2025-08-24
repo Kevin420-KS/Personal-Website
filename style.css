@@ -1,157 +1,119 @@
 /* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* biar pindah section halus */
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Sidebar */
+/* ===================== */
+/* SIDEBAR */
+/* ===================== */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100%;
-    background: #222;
-    padding-top: 20px;
-    transition: width 0.3s;
-    overflow: hidden;
-    z-index: 1000;
-}
-
-.sidebar.close {
-    width: 60px;
-}
-
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    color: #fff;
-    margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 220px;
+  background: #333;
+  padding-top: 20px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
 }
 
 .sidebar a {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    color: #ddd;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background 0.3s, color 0.3s;
-}
-
-.sidebar a i {
-    margin-right: 10px;
-    min-width: 20px;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
 .sidebar a:hover {
-    background: #444;
-    color: #fff;
+  background: #444;
+}
+
+/* Ikon sidebar */
+.sidebar a i {
+  font-size: 20px;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Label teks */
+.sidebar a span {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Saat sidebar close */
+.sidebar.close {
+  width: 70px;
 }
 
 .sidebar.close a span {
-    display: none;
+  display: none;
 }
 
-/* Tombol toggle */
-.toggle-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
+/* ===================== */
+/* MAIN CONTENT */
+/* ===================== */
+.main {
+  margin-left: 220px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
 }
 
-/* Konten utama */
-.content {
-    margin-left: 220px;
-    padding: 20px;
-    transition: margin-left 0.3s;
+.sidebar.close ~ .main {
+  margin-left: 70px;
 }
 
-.sidebar.close ~ .content {
-    margin-left: 60px;
-}
-
-/* Section agar bisa scroll dengan rapi */
+/* ===================== */
+/* SECTION */
+/* ===================== */
 section {
-    padding: 60px 20px;
-    min-height: 100vh; /* tiap bagian setinggi layar */
-    border-bottom: 1px solid #ddd; /* garis pemisah */
-    scroll-margin-top: 60px; /* biar pas klik link sidebar tidak ketutup */
+  height: 100vh; /* tiap section full layar */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Home */
-.home-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
+#home {
+  background: #e3f2fd;
 }
 
-.profile-img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #333;
+#about {
+  background: #fce4ec;
 }
 
-.text-container {
-    flex: 1;
-    font-size: 18px;
-    line-height: 1.6;
+#contact {
+  background: #e8f5e9;
 }
 
-/* About */
-#about ul {
-    margin-top: 15px;
-    padding-left: 20px;
-}
-
-#about li {
-    margin-bottom: 10px;
-}
-
-/* Contact */
-#contact ul {
-    margin-top: 15px;
-    padding-left: 20px;
-}
-
-#contact li {
-    margin-bottom: 10px;
-}
-
-#contact a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-#contact a:hover {
-    text-decoration: underline;
-}
-
-/* Responsif */
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-    .sidebar.close {
-        width: 0;
-    }
-    .content {
-        margin-left: 60px;
-    }
-    .sidebar.close ~ .content {
-        margin-left: 0;
-    }
-    .text-container {
-        font-size: 16px;
-    }
+  .sidebar {
+    width: 70px;
+  }
+  .sidebar a span {
+    display: none;
+  }
+  .main {
+    margin-left: 70px;
+  }
 }

@@ -11,12 +11,11 @@ body {
     width: 220px;
     position: fixed;
     background-color: #222;
-    padding-top: 0;
     transition: width 0.3s ease;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-/* Header sidebar (Menu + tombol toggle) */
+/* Header sidebar */
 .sidebar-header {
     display: flex;
     justify-content: space-between;
@@ -54,11 +53,7 @@ body {
     width: 70px;
 }
 
-/* Saat close, sembunyikan teks */
-.sidebar.close h2 {
-    display: none;
-}
-
+.sidebar.close h2,
 .sidebar.close a span {
     display: none;
 }
@@ -74,7 +69,6 @@ body {
     gap: 10px;
     transition: 0.3s;
     white-space: nowrap;
-    overflow: hidden;
 }
 
 .sidebar a:hover {
@@ -100,26 +94,11 @@ body {
     margin-left: 90px;
 }
 
-/* Responsif untuk HP */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .sidebar.close {
-        width: 100%;
-    }
-    .content {
-        margin-left: 0;
-    }
-}
-
-/* Layout untuk halaman Home */
+/* Layout Home */
 .home-container {
     display: flex;
     align-items: center;
-    gap: 20px; /* jarak antara gambar dan teks */
+    gap: 20px;
 }
 
 .profile-img {

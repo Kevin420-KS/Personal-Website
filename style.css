@@ -132,3 +132,23 @@ body {
 .text-container {
     max-width: 600px;
 }
+
+/* Kontainer utama yang menampung konten dinamis */
+#content {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    min-height: 80vh; /* biar nggak terlalu pendek */
+}
+
+/* Styling biar konsisten dengan sidebar */
+#content h1 {
+    margin-top: 0;
+    color: #222;
+}
+
+#content p {
+    line-height: 1.6;
+    color: #444;
+}
